@@ -15,29 +15,24 @@ int start(int A[MAX_INDEX][MAX_INDEX], int B[1728][MAX_SIZE], int x, int y, int 
     for(int j = 0; j <= b_2; j++){// no revists
         if(A[x][y] == B[b][j]){
             b_2 -= 1;
-            return b; //found a repeat
+            return 0; //found a repeat
         }
     }
 
     if(B[b][24] != -1){
         b += 1;
         b_2 = 0; 
-        return 0;
+        //return 0;
     }
     
     B[b][b_2] = A[x][y];// place the cell of A in B
-
-    // else{ //b index is full 
-    //     // b += 1; //increase the indexers
-    //     // b_2 = 0;
-    // }
 
     b_2 += 1;
 
     if(x + 2 <= 4 && y + 1 <= 4){ //goes down and right
         ret = start(A, B, x + 2, y + 1, b_2);
         if (ret == 0){
-            b_2 -= 1;
+           // b_2 -= 1;
         }
         else{return 0;}
     }
@@ -45,7 +40,7 @@ int start(int A[MAX_INDEX][MAX_INDEX], int B[1728][MAX_SIZE], int x, int y, int 
     if(x + 2 <= 4 && y - 1 >= 0){ //goes down and left
         ret = start(A, B, x + 2, y - 1, b_2);
         if (ret == 0){
-            b_2 -= 1;
+            //b_2 -= 1;
         }
         else{return 0;}
     }
@@ -53,7 +48,7 @@ int start(int A[MAX_INDEX][MAX_INDEX], int B[1728][MAX_SIZE], int x, int y, int 
      if(x - 2 >= 0 && y + 1 <= 4){ //goes up and right
         ret = start(A, B, x - 2, y + 1, b_2);
         if (ret == 0){
-            b_2 -= 1;
+           // b_2 -= 1;
         }
         else{return 0;}
     }
@@ -61,7 +56,7 @@ int start(int A[MAX_INDEX][MAX_INDEX], int B[1728][MAX_SIZE], int x, int y, int 
      if(x - 2 >= 0 && y - 1 >= 0){ //goes up and left
         ret = start(A, B, x - 2, y - 1, b_2);
         if (ret == 0){
-            b_2 -= 1;
+            //b_2 -= 1;
         }
         else{return 0;}
     }
@@ -69,7 +64,7 @@ int start(int A[MAX_INDEX][MAX_INDEX], int B[1728][MAX_SIZE], int x, int y, int 
      if(x - 1 >= 0 && y - 2 >= 0){ //goes left and up
         ret = start(A, B, x - 1, y - 2, b_2);
         if (ret == 0){
-            b_2 -= 1;
+            //b_2 -= 1;
         }
         else{return 0;}
     }
@@ -77,7 +72,7 @@ int start(int A[MAX_INDEX][MAX_INDEX], int B[1728][MAX_SIZE], int x, int y, int 
      if(x + 1 <= 4 && y - 2 >= 0){ //goes left and down
         ret = start(A, B, x + 1, y - 2, b_2);
         if (ret == 0){
-            b_2 -= 1;
+           // b_2 -= 1;
         }
         else{return 0;}
 
@@ -86,7 +81,7 @@ int start(int A[MAX_INDEX][MAX_INDEX], int B[1728][MAX_SIZE], int x, int y, int 
     if(x - 1 >= 0 && y + 2 <= 4){ //goes right and up
         ret = start(A, B, x - 1, y + 2, b_2);
         if (ret == 0){
-            b_2 -= 1;
+           // b_2 -= 1;
         }
         else{return 0;}
 
@@ -95,7 +90,7 @@ int start(int A[MAX_INDEX][MAX_INDEX], int B[1728][MAX_SIZE], int x, int y, int 
     if(x + 1 <= 4 && y + 2 <= 4){ //goes right and down
         ret = start(A, B, x + 1, y + 2, b_2);
         if (ret == 0){
-            b_2 -= 1;
+           // b_2 -= 1;
         }
         else{return 0;}
 
@@ -160,9 +155,10 @@ int main(int argc, char *argv[]){
             x = 4;
             y = i - 20;
         }
-        //start(A, B, x, y, 0);
-        printf("%3d", start(A, B, x, y, 0)); //calls the starting methods
+        start(A, B, x, y, 0);
         b += 1; 
+        //printf("%3d", start(A, B, x, y, 0)); //calls the starting methods
+
     }
 
     for(int r = 0; r < 27; r++){
