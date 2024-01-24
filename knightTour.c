@@ -12,7 +12,7 @@ int start(int A[MAX_INDEX][MAX_INDEX], int B[1728][MAX_SIZE], int x, int y, int 
         return 1; //error out of bounds
     }
 
-    for(int j = 0; j <= b_2; j++){// no revists
+    for(int j = 0; j < b_2; j++){// no revists
         if(A[x][y] == B[b][j]){
             b_2 -= 1;
             return 0; //found a repeat

@@ -1,6 +1,7 @@
 #Makefile - for knight tour
 
-tour:    tour.c
-		gcc knightTour.c -o tour
+tour:    knightTour.c
+		gcc knightTour.c -o ktour
 
-clean: rm -rf tour
+clean: 
+	rm -f tour
