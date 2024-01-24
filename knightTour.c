@@ -30,68 +30,68 @@ int start(int A[MAX_INDEX][MAX_INDEX], int B[1728][MAX_SIZE], int x, int y, int 
     b_2 += 1;
 
     if(x + 2 <= 4 && y + 1 <= 4){ //goes down and right
-        // int ret = start(A, B, x + 2, y + 1, b, b_2);
-        // if (ret == 2 || ret == 3){
-        //     b_2 -= 1;
-        // }
-        //else{return 0;}
-        return start(A, B, x + 2, y + 1, b, b_2);
+        int ret = start(A, B, x + 2, y + 1, b, b_2);
+        if (ret == 2 || ret == 3){
+            b_2 -= 1;
+        }
+        else{return 0;}
+        return ret;
     }
     
     if(x + 2 <= 4 && y - 1 >= 0){ //goes down and left
-        // int ret = start(A, B, x + 2, y - 1, b, b_2);
-        // if (ret == 2 || ret == 3){
-        //     b_2 -= 1;
-        // }
-        return start(A, B, x + 2, y - 1, b, b_2);
+        int ret = start(A, B, x + 2, y - 1, b, b_2);
+        if (ret == 2 || ret == 3){
+            b_2 -= 1;
+        }
+        return ret;
     }
 
      if(x - 2 >= 0 && y + 1 <= 4){ //goes up and right
-        // int ret = start(A, B, x - 2, y + 1, b, b_2);
-        // if (ret == 2 || ret == 3){
-        //     b_2 -= 1;
-        // }
-        return start(A, B, x - 2, y + 1, b, b_2);
+        int ret = start(A, B, x - 2, y + 1, b, b_2);
+        if (ret == 2 || ret == 3){
+            b_2 -= 1;
+        }
+        return ret;
     }
 
      if(x - 2 >= 0 && y - 1 >= 0){ //goes up and left
-        // int ret = start(A, B, x - 2, y - 1, b, b_2);
-        // if (ret == 2 || ret == 3){
-        //     b_2 -= 1;
-        // }
-        return start(A, B, x - 2, y - 1, b, b_2);
+        int ret = start(A, B, x - 2, y - 1, b, b_2);
+        if (ret == 2 || ret == 3){
+            b_2 -= 1;
+        }
+        return ret;
     }
 
      if(x - 1 >= 0 && y - 2 >= 0){ //goes left and up
-        // int ret = start(A, B, x - 1, y - 2, b, b_2);
-        // if (ret == 2 || ret == 3){
-        //     b_2 -= 1;
-        // }
-        return start(A, B, x - 1, y - 2, b, b_2);
+        int ret = start(A, B, x - 1, y - 2, b, b_2);
+        if (ret == 2 || ret == 3){
+            b_2 -= 1;
+        }
+        return ret;
     }
 
      if(x + 1 <= 4 && y - 2 >= 0){ //goes left and down
-        // int ret = start(A, B, x + 1, y - 2, b, b_2);
-        // if (ret == 2 || ret == 3){
-        //     b_2 -= 1;
-        // }
-        return start(A, B, x + 1, y - 2, b, b_2);
+        int ret = start(A, B, x + 1, y - 2, b, b_2);
+        if (ret == 2 || ret == 3){
+            b_2 -= 1;
+        }
+        return ret;
     }
 
     if(x - 1 >= 0 && y + 2 <= 4){ //goes right and up
-        // int ret = start(A, B, x - 1, y + 2, b, b_2);
-        // if (ret == 2 || ret == 3){
-        //     b_2 -= 1;
-        // }   
-        return start(A, B, x - 1, y + 2, b, b_2);
+        int ret = start(A, B, x - 1, y + 2, b, b_2);
+        if (ret == 2 || ret == 3){
+            b_2 -= 1;
+        }   
+        return ret;
     }
 
     if(x + 1 <= 4 && y + 2 <= 4){ //goes right and down
-    // int ret = start(A, B, x + 2, y + 1, b, b_2);
-    //     if (ret == 2 || ret == 3){
-    //         b_2 -= 1;
-    //     }
-        return start(A, B, x + 1, y + 2, b, b_2);
+    int ret = start(A, B, x + 1, y + 2, b, b_2);
+        if (ret == 2 || ret == 3){
+            b_2 -= 1;
+        }
+        return ret;
     }
     
     return 3; //found dead end
@@ -125,8 +125,8 @@ int main(int argc, char *argv[]){
         }
     }
 
-    for(i = 0; i < 20; i++){//fills the table
-        for (int j = 0; j < 25; j++)
+    for(i = 0; i < 1728; i++){//fills the table
+        for (int j = 0; j < 24; j++)
         {
            B[i][j] = -1;
         }
@@ -160,8 +160,8 @@ int main(int argc, char *argv[]){
         start(A, B, x, y, b, 0);
     }
 
-    for(int r = 0; r < 20; r++){
-        for(int t = 0; t < 25; t++){
+    for(int r = 0; r < 25; r++){
+        for(int t = 0; t < 24; t++){
             printf("%3d", B[r][t]);
             printf(", ");
         }
